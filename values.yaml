@@ -1,0 +1,14 @@
+namespace:
+  name: jenkins-namespace
+
+service:
+  httpport: 8080
+  jnlpport: 50000
+  type: NodePort
+
+image:
+  repository: jenkins/jenkins
+  tag: lts
+  pullPolicy: Always
+
+replicaCount: 2
