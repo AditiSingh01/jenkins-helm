@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jenkins
+  name: jenkins
+  namespace: {{ .Values.namespace.name }}
+spec:
+  ports:
+  - port: {{ .Values.service.httpport }}
+    protocol: TCP
+    targetPort: {{ .Values.service.httpport }}
+  selector:
+    app: jenkins
+  type: NodePort
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jenkins
+  name: jenkins-jnlp
+  namespace: {{ .Values.namespace.name }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.service.jnlpport }}
+      targetPort: {{ .Values.service.jnlpport }}
+  selector:
+    app: jenkins
