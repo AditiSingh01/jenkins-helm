@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  jenkins:
+  - apiVersion: v1
+    created: "2022-09-11T17:12:20.6848095Z"
+    description: Setup of jenkins manifests
+    digest: b0b00a960e2d685cdfac5a7bac4edc597a4219b614c35f45c8be26f2303adc70
+    keywords:
+    - jenkins
+    maintainers:
+    - email: aditi73012@gmail.com
+      name: aditi singh
+    name: jenkins
+    urls:
+    - https://aditisingh01.github.io/jenkins-helm/jenkins-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-09-11T17:12:20.6848095Z"
