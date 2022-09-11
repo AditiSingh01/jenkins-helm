@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jenkins-deploy
+  name: jenkins-deploy
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: jenkins-deploy
+  template:
+    metadata:
+      labels:
+        app: jenkins-deploy
+    spec:
+      containers:
+      - name: jenkins
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }} 
+        ports:
+          - name: http-port
+            containerPort: {{ .Values.service.httpport }}
+          - name: jnlp-port
+            containerPort: {{ .Values.service.jnlpport }}
+            
